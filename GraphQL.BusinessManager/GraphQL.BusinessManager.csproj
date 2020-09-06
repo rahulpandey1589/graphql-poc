@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GraphQL.DataAccess\GraphQL.DataAccess\GraphQL.DataAccess.csproj" />
+    <ProjectReference Include="..\GraphQL.Model\GraphQL.Model.csproj" />
+  </ItemGroup>
+
+</Project>
