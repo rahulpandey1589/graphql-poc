@@ -4,7 +4,6 @@ using GraphQL.Model.Enumeration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace GraphQL.DataAccess.Repository
 {
@@ -33,16 +32,24 @@ namespace GraphQL.DataAccess.Repository
                   new Person()
                 {
                     Id=3,
-                     FirstName="Barrack",
-                     LastName="Obama",
+                     FirstName="Roberto",
+                     LastName="Fed",
                      Gender="Male",
                       JobType = JobType.Permanent
                 },
                    new Person()
                 {
                     Id=4,
-                     FirstName="Donald",
-                     LastName="Trump",
+                     FirstName="Alan",
+                     LastName="Freed",
+                     Gender="Male",
+                    JobType = JobType.Permanent
+                },
+                     new Person()
+                {
+                    Id=5,
+                     FirstName="Michael",
+                     LastName="Jordan",
                      Gender="Male",
                     JobType = JobType.Permanent
                 }
