@@ -1,6 +1,7 @@
 ﻿using GraphQL.Api.GraphQL.Types;
-using GraphQL.BusinessManager.Interfaces;
 using GraphQL.Types;
+using GraphQL.BusinessManager.Interfaces;
+using System.Linq;
 
 namespace GraphQL.Api.GraphQL
 {
@@ -30,16 +31,23 @@ namespace GraphQL.Api.GraphQL
                 });
 
             // Fetch person with person name starts with
+            // Passed multiple parameters in query object
             Field<ListGraphType<PersonModelType>>(
                 "personByName",
-                arguments: new QueryArguments(new QueryArgument<NonNullGraphType<StringGraphType>>
-                {
-                    Name="firstName"
-                }),
+                arguments: new QueryArguments(
+                    new QueryArgument<NonNullGraphType<StringGraphType>>
+                    {
+                        Name = "firstName"
+                    },
+                    new QueryArgument<NonNullGraphType<IdGraphType>>
+                    {
+                          Name="limit"
+                    }),
                 resolve: context =>
                 {
                     var startsWith = context.GetArgument<string>("firstName");
-                    return personManager.FindPersonByName(startsWith);
+                    var limit = context.GetArgument<int>("limit");
+                    return personManager.FindPersonByName(startsWith).Take(limit); ;
                 });
         }
     }
