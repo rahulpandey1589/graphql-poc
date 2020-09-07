@@ -1,10 +1,6 @@
 ﻿using GraphQL.BusinessManager.Interfaces;
 using GraphQL.Model;
 using GraphQL.Types;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace GraphQL.Api.GraphQL.Types
 {
@@ -22,8 +18,6 @@ namespace GraphQL.Api.GraphQL.Types
                    "personDetails",
                    resolve: context => personManager.GetPersonDetailById(context.Source.Id)
                 );
-
         }
-
     }
 }

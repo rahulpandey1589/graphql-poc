@@ -9,7 +9,11 @@ namespace GraphQL.BusinessManager.Interfaces
     {
         IEnumerable<Person> GetAllPerson();
 
+        Person GetPersonById(int personId);
+
         PersonDetails GetPersonDetailById(int personId);
+
+        IEnumerable<Person> FindPersonByName(string nameToFind);
 
     }
 }

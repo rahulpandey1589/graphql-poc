@@ -1,5 +1,6 @@
 ﻿using GraphQL.DataAccess.IRepository;
 using GraphQL.Model;
+using GraphQL.Model.Enumeration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace GraphQL.DataAccess.Repository
                      FirstName="Mike",
                      LastName="Tyson",
                      Gender="Male",
-                     JobType = Model.Enumeration.JobType.Contractual
+                     JobType = JobType.Contractual
                 },
                  new Person()
                 {
@@ -27,7 +28,7 @@ namespace GraphQL.DataAccess.Repository
                      FirstName="James",
                      LastName="Douglas",
                      Gender="Male",
-                      JobType = Model.Enumeration.JobType.Contractual
+                      JobType = JobType.Contractual
                 },
                   new Person()
                 {
@@ -35,7 +36,7 @@ namespace GraphQL.DataAccess.Repository
                      FirstName="Barrack",
                      LastName="Obama",
                      Gender="Male",
-                      JobType = Model.Enumeration.JobType.Permanent
+                      JobType = JobType.Permanent
                 },
                    new Person()
                 {
@@ -43,12 +44,11 @@ namespace GraphQL.DataAccess.Repository
                      FirstName="Donald",
                      LastName="Trump",
                      Gender="Male",
-                    JobType = Model.Enumeration.JobType.Permanent
+                    JobType = JobType.Permanent
                 }
             };
 
         }
-
 
         public PersonDetails GetPersonDetailById(int personId)
         {
@@ -56,7 +56,6 @@ namespace GraphQL.DataAccess.Repository
                 .Where(x => x.PersonId == personId)
                 .FirstOrDefault();
         }
-
 
         private IEnumerable<PersonDetails> GetAllPersonsDetails()
         {
