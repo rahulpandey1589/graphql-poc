@@ -10,11 +10,11 @@ namespace GraphQL.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PersonController : ControllerBase
+    public class PersonApiController : ControllerBase
     {
         private readonly IPersonManager personManager;
 
-        public PersonController(IPersonManager personManager)
+        public PersonApiController(IPersonManager personManager)
         {
             this.personManager = personManager;
         }

@@ -10,7 +10,6 @@ namespace GraphQL.Api.GraphQL.Types
             Field(t => t.Address);
             Field(t => t.PersonId);
             Field(t => t.MobileNumber);
-
         }
     }
 }

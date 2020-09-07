@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GraphQL.Api.GraphQL;
+using GraphQL.Client;
 using GraphQL.Server;
+using GraphQL.Server.Ui.GraphiQL;
 using GraphQL.Server.Ui.Playground;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -41,6 +43,9 @@ namespace GraphQL.Api
             services.AddScoped<PersonSchema>();
 
 
+            services.AddSingleton(t => new GraphQLClient(Configuration[""]));
+
+
             services.AddGraphQL(o => { o.ExposeExceptions = true; })
                 .AddGraphTypes(ServiceLifetime.Scoped);
 
@@ -65,14 +70,23 @@ namespace GraphQL.Api
             app.UseCookiePolicy();
 
             app.UseGraphQL<PersonSchema>();
-            app.UseGraphQLPlayground(new GraphQLPlaygroundOptions());
 
-            //app.UseMvc(routes =>
-            //{
-            //    routes.MapRoute(
-            //        name: "default",
-            //        template: "{controller=Home}/{action=Index}/{id?}");
-            //});
+
+            GraphiQLOptions options = new GraphiQLOptions()
+            {
+                GraphiQLPath = "/ui/graphiql"
+            };
+
+            app.UseGraphiQLServer(options); //opens GraphiQL UI interface
+            
+            app.UseGraphQLPlayground(new GraphQLPlaygroundOptions()); // opens GraphQLPlayground UI interface
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
         }
     }
 }
