@@ -13,12 +13,16 @@ namespace GraphQL.Api.Controllers
     public class PersonApiController : ControllerBase
     {
         private readonly IPersonManager personManager;
+        private readonly IDepartmentManager departmentManager;
 
-        public PersonApiController(IPersonManager personManager)
+
+
+        public PersonApiController(IPersonManager personManager,
+            IDepartmentManager departmentManager)
         {
             this.personManager = personManager;
+            this.departmentManager = departmentManager;
         }
-
 
         [HttpGet]
         [Route("getAllPerson")]
@@ -29,6 +33,12 @@ namespace GraphQL.Api.Controllers
             return Ok(result);
         }
 
-
+        [HttpGet]
+        [Route("getAllDepartment")]
+        public ActionResult GetAllDepartment()
+        {
+            var result = departmentManager.GetAllDepartments();
+            return Ok(result);
+        }
     }
 }

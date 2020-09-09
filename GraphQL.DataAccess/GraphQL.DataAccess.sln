@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphQL.Api", "..\GraphQL.A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphQL.Model", "..\GraphQL.Model\GraphQL.Model.csproj", "{31EAC483-9AAE-4652-9EFE-C3EBE81E76C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphQL.BusinessManager", "..\GraphQL.BusinessManager\GraphQL.BusinessManager.csproj", "{01C4BEBE-0C89-421F-B904-307E284A2860}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphQL.BusinessManager", "..\GraphQL.BusinessManager\GraphQL.BusinessManager.csproj", "{01C4BEBE-0C89-421F-B904-307E284A2860}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphQL.ConsumerApp", "..\GraphQL.ConsumerApp\GraphQL.ConsumerApp.csproj", "{F5A948A4-7183-4C24-8C60-BE5B4B7FB24A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{01C4BEBE-0C89-421F-B904-307E284A2860}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01C4BEBE-0C89-421F-B904-307E284A2860}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01C4BEBE-0C89-421F-B904-307E284A2860}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5A948A4-7183-4C24-8C60-BE5B4B7FB24A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5A948A4-7183-4C24-8C60-BE5B4B7FB24A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5A948A4-7183-4C24-8C60-BE5B4B7FB24A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5A948A4-7183-4C24-8C60-BE5B4B7FB24A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

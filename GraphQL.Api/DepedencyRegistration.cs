@@ -13,6 +13,8 @@ namespace GraphQL.Api
             services.AddTransient<IPersonRepository, PersonRepository>();
             services.AddTransient<IPersonManager, PersonManager>();
 
+            services.AddTransient<IDeparmentRepository, DepartmentRepository>();
+            services.AddTransient<IDepartmentManager, DepartmentManager>();
         }
 
     }

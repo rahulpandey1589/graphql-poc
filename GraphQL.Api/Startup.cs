@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using GraphQL.Api.GraphQL;
+﻿using GraphQL.Api.GraphQL;
 using GraphQL.Client;
 using GraphQL.Server;
 using GraphQL.Server.Ui.GraphiQL;
@@ -10,7 +6,6 @@ using GraphQL.Server.Ui.Playground;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -41,7 +36,7 @@ namespace GraphQL.Api
             services.AddScoped<IDependencyResolver>(s => new FuncDependencyResolver(s.GetRequiredService));
             
             services.AddScoped<PersonSchema>();
-
+            services.AddScoped<DepartmentSchema>();
 
             services.AddSingleton(t => new GraphQLClient(Configuration[""]));
 
@@ -69,17 +64,31 @@ namespace GraphQL.Api
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
-            app.UseGraphQL<PersonSchema>();
-
-
-            GraphiQLOptions options = new GraphiQLOptions()
+            app.UseGraphQL<PersonSchema>(path: "/api/person/graphql");
+            app.UseGraphQLPlayground(new GraphQLPlaygroundOptions
             {
-                GraphiQLPath = "/ui/graphiql"
-            };
+                GraphQLEndPoint= "/api/person/graphql",
+                Path= "/api/person/playground"
 
-            app.UseGraphiQLServer(options); //opens GraphiQL UI interface
+            }); // opens GraphQLPlayground UI interface
             
-            app.UseGraphQLPlayground(new GraphQLPlaygroundOptions()); // opens GraphQLPlayground UI interface
+            
+            app.UseGraphQL<DepartmentSchema>(path: "/api/department/graphql");
+            app.UseGraphQLPlayground(new GraphQLPlaygroundOptions
+            {
+                GraphQLEndPoint = "/api/department/graphql",
+                Path = "/api/department/playground"
+
+            }); // opens GraphQLPlayground UI interface
+
+
+            //GraphiQLOptions options = new GraphiQLOptions()
+            //{
+            //    GraphiQLPath = "/ui/graphiql"
+            //};
+
+            //app.UseGraphiQLServer(options); //opens GraphiQL UI interface
+
 
             app.UseMvc(routes =>
             {
