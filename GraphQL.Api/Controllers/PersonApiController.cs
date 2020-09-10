@@ -15,8 +15,6 @@ namespace GraphQL.Api.Controllers
         private readonly IPersonManager personManager;
         private readonly IDepartmentManager departmentManager;
 
-
-
         public PersonApiController(IPersonManager personManager,
             IDepartmentManager departmentManager)
         {

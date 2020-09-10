@@ -5,20 +5,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="APIClient\**" />
+    <Content Remove="APIClient\**" />
+    <EmbeddedResource Remove="APIClient\**" />
+    <None Remove="APIClient\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="GraphQL.Client" Version="1.0.3" />
     <PackageReference Include="GraphQL.Server.Transports.AspNetCore" Version="3.4.0" />
     <PackageReference Include="GraphQL.Server.Ui.GraphiQL" Version="3.4.0" />
     <PackageReference Include="GraphQL.Server.Ui.Playground" Version="3.4.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\GraphQL.BusinessManager\GraphQL.BusinessManager.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="APIClient\" />
   </ItemGroup>
 
 </Project>
