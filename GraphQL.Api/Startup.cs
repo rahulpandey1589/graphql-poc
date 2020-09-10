@@ -32,15 +32,11 @@ namespace GraphQL.Api
             });
 
             DepedencyRegistration.Register(services);
-
-            services.AddScoped<IDependencyResolver>(s => new FuncDependencyResolver(s.GetRequiredService));
             
-            services.AddScoped<PersonSchema>();
-            services.AddScoped<DepartmentSchema>();
-
+            // GraphQL related configuration
+            services.AddScoped<IDependencyResolver>(s => new FuncDependencyResolver(s.GetRequiredService));
+            GraphQLSchemaRegistration.Register(services);
             services.AddSingleton(t => new GraphQLClient(Configuration[""]));
-
-
             services.AddGraphQL(o => { o.ExposeExceptions = true; })
                 .AddGraphTypes(ServiceLifetime.Scoped);
 
@@ -64,23 +60,7 @@ namespace GraphQL.Api
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
-            app.UseGraphQL<PersonSchema>(path: "/api/person/graphql");
-            app.UseGraphQLPlayground(new GraphQLPlaygroundOptions
-            {
-                GraphQLEndPoint= "/api/person/graphql",
-                Path= "/api/person/playground"
-
-            }); // opens GraphQLPlayground UI interface
-            
-            
-            app.UseGraphQL<DepartmentSchema>(path: "/api/department/graphql");
-            app.UseGraphQLPlayground(new GraphQLPlaygroundOptions
-            {
-                GraphQLEndPoint = "/api/department/graphql",
-                Path = "/api/department/playground"
-
-            }); // opens GraphQLPlayground UI interface
-
+            ConfigureGraphQLEndpoints.Configure(app);
 
             //GraphiQLOptions options = new GraphiQLOptions()
             //{
