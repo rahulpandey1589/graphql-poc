@@ -7,6 +7,11 @@ namespace GraphQL.Web.Pages
 {
     public class IndexModel : PageModel
     {
+
+        public PersonContainer Person { get; set; }
+
+
+
         private readonly PersonHttpClient personHttpClient;
 
         public IndexModel(PersonHttpClient _personHttpClient)
@@ -14,12 +19,13 @@ namespace GraphQL.Web.Pages
             personHttpClient = _personHttpClient;
         }
 
-        public void OnGet()
+        public async Task OnGet()
         {
-            GetAllPerson();
+           var personObj = await GetAllPerson();
+            Person = personObj.Data;
         }
 
-        private async Task<PersonContainer> GetAllPerson()
+        private async Task<ResponseModel<PersonContainer>> GetAllPerson()
         {
             return await personHttpClient.GetAllPerson();
         }
