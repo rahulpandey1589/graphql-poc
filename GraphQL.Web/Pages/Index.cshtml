@@ -6,8 +6,10 @@
 
 
 <div class="row">
-    @foreach(var data in Model.Person.PersonsObject)
+    @foreach (var data in Model.PersonContainer.Persons)
     {
         <label>@data.FirstName</label>
+        <label>@data.LastName</label>
+        <label>@data.JobType</label>
     }
 </div>

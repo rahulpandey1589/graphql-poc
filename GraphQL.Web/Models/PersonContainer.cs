@@ -5,6 +5,6 @@ namespace GraphQL.Web.Models
 {
     public class PersonContainer
     {
-        public List<Person> PersonsObject { get; set; }
+        public List<Person> Persons { get; set; }
     }
 }

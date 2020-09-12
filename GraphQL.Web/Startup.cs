@@ -33,8 +33,11 @@ namespace GraphQL.Web
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
 
-            services.AddSingleton(t => new GraphQLClient(Configuration["ApiBaseUrl"]));
+          // services.AddSingleton(t => new GraphQLClient(Configuration["ApiEndPoints:PersonEndPoint"]));
+            //services.AddSingleton(t => new GraphQLClient(Configuration["ApiEndPoints:DepartmentEndPoint"]));
+
             services.AddSingleton<PersonGraphClient>();
+
             services.AddHttpClient<PersonHttpClient>(o => o.BaseAddress = new Uri(Configuration["ApiBaseUrl"]));
         }
 
