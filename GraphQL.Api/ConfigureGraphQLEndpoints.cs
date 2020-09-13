@@ -1,4 +1,5 @@
 ﻿using GraphQL.Api.GraphQL;
+using GraphQL.Api.GraphQL.Schemas;
 using GraphQL.Server;
 using GraphQL.Server.Ui.Playground;
 using Microsoft.AspNetCore.Builder;

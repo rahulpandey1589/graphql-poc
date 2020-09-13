@@ -1,6 +1,7 @@
-﻿using GraphQL.Types;
+﻿using GraphQL.Api.GraphQL.Query;
+using GraphQL.Types;
 
-namespace GraphQL.Api.GraphQL
+namespace GraphQL.Api.GraphQL.Schemas
 {
     public class DepartmentSchema : Schema
     {

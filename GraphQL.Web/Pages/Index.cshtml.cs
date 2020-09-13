@@ -29,8 +29,8 @@ namespace GraphQL.Web.Pages
 
         public async Task OnGet()
         {
-           var personObj = await GetPersonByPersonId(1);
-            PersonContainer = personObj.Data;
+           var personObj = await AddPerson();
+           
         }
 
         #region Private Methods
@@ -43,6 +43,15 @@ namespace GraphQL.Web.Pages
         private async Task<ResponseModel<PersonContainer>> GetPersonByPersonId(int personId)
         {
             return await personGraphClient.GetPersonDetailsById(personId);
+        }
+        private async Task<ResponseModel<Person>> AddPerson()
+        {
+            return await personGraphClient.AddPerson(new PersonInputModel() 
+            {
+                FirstName = "FirstName",
+                LastName = "LastName",
+                Gender="Gender"
+            });
         }
 
         #endregion

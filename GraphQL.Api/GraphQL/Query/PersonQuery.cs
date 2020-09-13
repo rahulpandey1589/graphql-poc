@@ -1,9 +1,9 @@
-﻿using GraphQL.Api.GraphQL.Types;
-using GraphQL.Types;
+﻿using GraphQL.Types;
 using GraphQL.BusinessManager.Interfaces;
 using System.Linq;
+using GraphQL.Api.GraphQL.Types.OutputTypes;
 
-namespace GraphQL.Api.GraphQL
+namespace GraphQL.Api.GraphQL.Query
 {
     public class PersonQuery : ObjectGraphType
     {
@@ -29,6 +29,7 @@ namespace GraphQL.Api.GraphQL
                     var id = context.GetArgument<int>("id");
                     return personManager.GetPersonById(id);
                 });
+
 
             // Fetch person with person name starts with
             // Passed multiple parameters in query object

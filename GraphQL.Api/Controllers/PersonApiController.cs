@@ -38,5 +38,14 @@ namespace GraphQL.Api.Controllers
             var result = departmentManager.GetAllDepartments();
             return Ok(result);
         }
+
+        [HttpPost]
+        [Route("addNewPerson")]
+        public ActionResult AddNewPerson()
+        {
+            var result = personManager.GetAllPerson();
+
+            return Ok(result);
+        }
     }
 }

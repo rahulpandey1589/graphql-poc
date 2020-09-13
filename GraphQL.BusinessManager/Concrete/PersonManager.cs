@@ -3,6 +3,7 @@ using GraphQL.DataAccess.IRepository;
 using GraphQL.Model;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace GraphQL.BusinessManager.Concrete
 {
@@ -38,7 +39,11 @@ namespace GraphQL.BusinessManager.Concrete
                 GetAllPerson()
                 .Where(x => x.FirstName.StartsWith(nameToFind))
                 .ToList();
-                 
+        }
+
+        public Task<Person> AddNewPerson(Person person)
+        {
+            return personRepository.AddNewPerson(person);
         }
     }
 }

@@ -8,7 +8,10 @@ namespace GraphQL.Web.ApiClient
 {
     /// <summary>
     /// This class demostrates the way of calling a GraphQLQuery via Httpclient object.
+    /// HTTPClient is not a valid way of calling graphQL api as we cannot leverage all the functionality
+    /// using this way. 
     /// 
+    /// Use GraphQL.Client instead.
     /// </summary>
     public class PersonHttpClient
     {
@@ -37,7 +40,7 @@ namespace GraphQL.Web.ApiClient
                 var stringResult = await response.Content.ReadAsStringAsync();
                 return JsonConvert.DeserializeObject<ResponseModel<PersonContainer>>(stringResult);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }

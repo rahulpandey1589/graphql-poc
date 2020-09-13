@@ -4,11 +4,32 @@ using GraphQL.Model.Enumeration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace GraphQL.DataAccess.Repository
 {
     public class PersonRepository : IPersonRepository
     {
+        IList<Person> personList;
+        public PersonRepository()
+        {
+            personList = GetAllPerson().ToList();
+        }
+
+        public async Task<Person> AddNewPerson(Person person)
+        {
+            try
+            {
+                personList.Add(person);
+                return person;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            
+        }
+
         public IEnumerable<Person> GetAllPerson()
         {
             return new List<Person>()

@@ -1,7 +1,7 @@
 ﻿using GraphQL.Model;
 using GraphQL.Types;
 
-namespace GraphQL.Api.GraphQL.Types
+namespace GraphQL.Api.GraphQL.Types.OutputTypes
 {
     public class PersonDetailModelType : ObjectGraphType<PersonDetails>
     {

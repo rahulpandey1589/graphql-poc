@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace GraphQL.BusinessManager.Interfaces
 {
@@ -14,6 +15,8 @@ namespace GraphQL.BusinessManager.Interfaces
         PersonDetails GetPersonDetailById(int personId);
 
         IEnumerable<Person> FindPersonByName(string nameToFind);
+
+        Task<Person> AddNewPerson(Person person);
 
     }
 }

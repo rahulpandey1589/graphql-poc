@@ -1,8 +1,8 @@
-﻿using GraphQL.Api.GraphQL.Types;
+﻿using GraphQL.Api.GraphQL.Types.OutputTypes;
 using GraphQL.BusinessManager.Interfaces;
 using GraphQL.Types;
 
-namespace GraphQL.Api.GraphQL
+namespace GraphQL.Api.GraphQL.Query
 {
     public class DepartmentQuery : ObjectGraphType
     {

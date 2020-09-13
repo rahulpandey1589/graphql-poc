@@ -1,7 +1,6 @@
 ﻿using GraphQL.Model;
-using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Threading.Tasks;
 
 namespace GraphQL.DataAccess.IRepository
 {
@@ -10,6 +9,8 @@ namespace GraphQL.DataAccess.IRepository
         IEnumerable<Person> GetAllPerson();
 
         PersonDetails GetPersonDetailById(int personId);
+
+        Task<Person> AddNewPerson(Person person);
 
     }
 }

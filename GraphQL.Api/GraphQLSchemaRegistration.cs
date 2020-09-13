@@ -1,4 +1,5 @@
 ﻿using GraphQL.Api.GraphQL;
+using GraphQL.Api.GraphQL.Schemas;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
