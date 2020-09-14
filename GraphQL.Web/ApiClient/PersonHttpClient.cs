@@ -33,6 +33,7 @@ namespace GraphQL.Web.ApiClient
                                                              { id 
                                                                firstName 
                                                                lastName 
+                                                               gender
                                                              } 
                                                          }"
                                                         );

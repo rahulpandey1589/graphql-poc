@@ -29,30 +29,27 @@ namespace GraphQL.Web.Pages
 
         public async Task OnGet()
         {
-           var personObj = await AddPerson();
+          // var personObj = await AddPerson();
            
         }
 
         #region Private Methods
-        private async Task<ResponseModel<PersonContainer>> GetAllPerson()
-        {
-            return await personHttpClient.GetAllPerson();
-        }
+        
 
 
         private async Task<ResponseModel<PersonContainer>> GetPersonByPersonId(int personId)
         {
             return await personGraphClient.GetPersonDetailsById(personId);
         }
-        private async Task<ResponseModel<Person>> AddPerson()
-        {
-            return await personGraphClient.AddPerson(new PersonInputModel() 
-            {
-                FirstName = "FirstName",
-                LastName = "LastName",
-                Gender="Gender"
-            });
-        }
+        //private async Task<ResponseModel<Person>> AddPerson()
+        //{
+        //    return await personGraphClient.AddPerson(new PersonInputModel() 
+        //    {
+        //        FirstName = "FirstName",
+        //        LastName = "LastName",
+        //        Gender="Gender"
+        //    });
+        //}
 
         #endregion
     }

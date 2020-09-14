@@ -11,6 +11,7 @@ namespace GraphQL.DataAccess.Repository
     public class PersonRepository : IPersonRepository
     {
         IList<Person> personList;
+
         public PersonRepository()
         {
             personList = GetAllPerson().ToList();

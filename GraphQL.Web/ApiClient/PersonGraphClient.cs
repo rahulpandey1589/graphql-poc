@@ -17,6 +17,37 @@ namespace GraphQL.Web.ApiClient
             _client = client;
         }
 
+        public async Task<ResponseModel<PersonContainer>> GetAllPerson()
+        {
+            ResponseModel<PersonContainer> personObj =
+                new ResponseModel<PersonContainer>();
+            try
+            {
+                var request = new GraphQLRequest
+                {
+                    Query = @"?query=
+                      {
+                        personsObject
+                         {
+                           firstName
+                           lastName
+                           gender
+                           jobType
+                         }
+                       }"
+                };
+
+                var response = await _client.PostAsync(request);
+                personObj.Data = response.Data;
+                return personObj;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public async Task<ResponseModel<PersonContainer>> GetPersonDetailsById(int personId)
         {
              ResponseModel<PersonContainer> personObj

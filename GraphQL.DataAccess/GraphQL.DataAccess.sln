@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphQL.Model", "..\GraphQL
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphQL.BusinessManager", "..\GraphQL.BusinessManager\GraphQL.BusinessManager.csproj", "{01C4BEBE-0C89-421F-B904-307E284A2860}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphQL.Web", "..\GraphQL.Web\GraphQL.Web.csproj", "{3DF20C9D-0E88-4819-B9D1-0602C4039811}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphQL.Web", "..\GraphQL.Web\GraphQL.Web.csproj", "{3DF20C9D-0E88-4819-B9D1-0602C4039811}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

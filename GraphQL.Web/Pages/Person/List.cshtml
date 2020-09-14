@@ -1,0 +1,51 @@
+﻿@page
+@model GraphQL.Web.Pages.Person.ListModel
+@{
+    ViewData["Title"] = "List All Persons";
+}
+
+<div class="form-control">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">
+                    First Name
+                </th>
+                <th scope="col">
+                    Last Name
+                </th>
+                <th scope="col">
+                    Gender
+                </th>
+                <th scope="col">
+                    Job Type
+                </th>
+                <th scope="col">
+                    Select
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var person in Model.PersonList)
+            {
+                <tr>
+                    <td>
+                        @person.FirstName
+                    </td>
+                    <td>
+                        @person.LastName
+                    </td>
+                    <td>
+                        @person.Gender
+                    </td>
+                    <td>
+                        @person.JobType
+                    </td>
+                    <td>
+                        <a asp-page="/Person/PersonDetail">Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
