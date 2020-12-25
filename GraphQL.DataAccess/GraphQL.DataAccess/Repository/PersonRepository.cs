@@ -93,24 +93,24 @@ namespace GraphQL.DataAccess.Repository
                 new PersonDetails()
                 {
                     PersonId=1,
-                    Address="Faridabad",
-                    MobileNumber="1111111111"
+                    Address="North America",
+                    MobileNumber="1111111111111"
                 },
                 new PersonDetails()
                 {
                     PersonId=2,
-                    Address="Gurgaon",
-                    MobileNumber="2222222222"
+                    Address="South America",
+                    MobileNumber="2222222222222"
                 },new PersonDetails()
                 {
                     PersonId=3,
-                    Address="Noida",
-                    MobileNumber="3333333333"
+                    Address="Canada",
+                    MobileNumber="3333333333333"
                 },new PersonDetails()
                 {
                     PersonId=4,
-                    Address="Pune",
-                    MobileNumber="44444444"
+                    Address="United Kingdom",
+                    MobileNumber="4444444444444"
                 },
             };
         }
